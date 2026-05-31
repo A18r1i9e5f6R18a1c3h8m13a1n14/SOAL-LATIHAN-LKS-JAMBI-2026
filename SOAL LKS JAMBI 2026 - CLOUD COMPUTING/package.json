@@ -1,0 +1,17 @@
+{
+  "name": "crud-nodejs-app-gui",
+  "version": "1.0.0",
+  "description": "Simple CRUD Node.js + MySQL app with EJS GUI for AWS deployment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.1057.0",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "^3.3.1",
+    "sequelize": "^6.37.1"
+  }
+}

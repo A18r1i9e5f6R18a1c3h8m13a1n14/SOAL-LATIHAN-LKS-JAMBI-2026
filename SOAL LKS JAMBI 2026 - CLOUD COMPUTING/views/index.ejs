@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar User</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="eyebrow">CRUD User</span>
+        <h1>Daftar User</h1>
+        <p class="subtitle">Kelola data pengguna dengan tampilan yang lebih rapi dan mudah dibaca.</p>
+      </div>
+      <a class="btn" href="/add">
+        <span aria-hidden="true">+</span>
+        <span>Tambah User</span>
+      </a>
+    </header>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">Data Pengguna</h2>
+        <span class="count"><%= users.length %></span>
+      </div>
+
+      <% if (users.length) { %>
+        <div class="table-wrap">
+          <table class="user-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th style="text-align: right;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% users.forEach((user, index) => { %>
+                <tr style="animation-delay: <%= index * 70 %>ms;">
+                  <td>#<%= user.id %></td>
+                  <td class="user-name"><%= user.name %></td>
+                  <td class="user-email"><%= user.email %></td>
+                  <td>
+                    <div class="actions">
+                      <a class="action-link" href="/edit/<%= user.id %>">Edit</a>
+                      <a class="action-link danger" href="/delete/<%= user.id %>">Hapus</a>
+                    </div>
+                  </td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      <% } else { %>
+        <div class="empty-state">
+          <h2>Belum ada user</h2>
+          <p>Tambahkan user pertama agar data pengguna muncul di halaman ini.</p>
+        </div>
+      <% } %>
+    </section>
+  </main>
+</body>
+</html>
